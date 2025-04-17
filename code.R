@@ -1,11 +1,7 @@
----
-output: html_document
-runtime: shiny
----
 #' ---
 #' title: "CMM703 - Data Analysis Coursework "
 #' author: "Kaneel Dias"
-#' date: "2025-04-14"
+#' date: "2025-04-17"
 #' ---
 suppressWarnings(suppressMessages({
   library(ggplot2)
@@ -580,7 +576,6 @@ ggplot(data = test_data, aes(x = Tenure, y = test_predictions)) +
 #' We can also plot our predicted values against the actual values. Here we can see that our model is mostly predicting values
 #' between 4.6 and 5.4. But the complete range of values fall between 0 and 10. We can infer from this, that our model does not
 #' have sufficient data to make accurate predictions.
-<<<<<<< HEAD
 #'
 
 
@@ -665,7 +660,7 @@ tail(bank_churn_new, 3)
 #' In order to do this, we iterate through all the columns, and identify values which are either 1.5 IQR away from Q1/Q3, 
 #' or 3 standard deviations away from the mean.  
 #'   
-#'   The possible values for method are `IQR` and `SD`.
+#' The possible values for method are `IQR` and `SD`.
 detect_outliers <- function(data, method = "IQR") {
   outliers_list <- list()
   
@@ -852,7 +847,7 @@ print(results)
 #' - The user can click on a button to visualize the data  
 #' - The user can select a variable, and click on a button to run a model and view metrics/plots.  
 #'   
-#' You can view a screenshot of the application here.
+#' You can view a screenshot of the application [here](https://github.com/kaneeldias/cmm703-data-analysis-assignment/blob/main/shiny_app_screenshot.pdf).
 ui <- fluidPage(
   titlePanel("Analyze dataset"),
   fileInput(inputId = "upload", label = "Upload dataset", accept = "text/csv"),
@@ -990,3 +985,8 @@ server <- function(input, output) {
 }
 
 shinyApp(ui = ui, server = server)
+
+#' You can view a screenshot of the application [here](https://github.com/kaneeldias/cmm703-data-analysis-assignment/blob/main/shiny_app_screenshot.pdf).  
+#'  
+#' ![screenshot-1](shiny_app_screenshot-1.png)
+#' ![screenshot-2](shiny_app_screenshot-2.png)
