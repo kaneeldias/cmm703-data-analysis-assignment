@@ -311,7 +311,7 @@ plot_boxplot <- function(data, variable) {
 plot_numerical <- function(data, variable) {
   histogram <- suppressMessages(plot_histogram(data, variable))
   boxplot <- plot_boxplot(data, variable)
-  
+
   grid.arrange(histogram, boxplot, nrow = 1)
 }
 
@@ -347,7 +347,7 @@ bank_churn_data$Exited <- as.factor(bank_churn_data$Exited)
 
 #' Now we can plot their distribution using bar charts.
 plot_bar_chart <- function(data, variable) {
-  ggplot(data=data, aes(x=data[,variable])) +
+  plot <- ggplot(data=data, aes(x=data[,variable])) +
     geom_bar(stat="count", fill="steelblue") +
     geom_text(stat="count", aes(label=..count..), vjust=1.6, color="white", size=2.5) +
     labs(
@@ -358,6 +358,7 @@ plot_bar_chart <- function(data, variable) {
     theme(
       plot.title = element_text(color = "#0099f8", size = 12, face = "bold", hjust = 0.5),
     )
+  return (plot)
 }
 
 #+ fig.height = 3, fig.width = 3
@@ -579,6 +580,7 @@ ggplot(data = test_data, aes(x = Tenure, y = test_predictions)) +
 #' We can also plot our predicted values against the actual values. Here we can see that our model is mostly predicting values
 #' between 4.6 and 5.4. But the complete range of values fall between 0 and 10. We can infer from this, that our model does not
 #' have sufficient data to make accurate predictions.
+<<<<<<< HEAD
 #'
 
 
